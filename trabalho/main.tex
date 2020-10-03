@@ -111,7 +111,12 @@ do arquivo \texttt{vars.example} para um outro arquivo onde serão armazenadas a
 os valores de acordo com suas informações, feche e salve o arquivo. 
 
 Dentro do da mesma pasta, existe um\emph{script} chamado \texttt{easyrca}. Execute-o da seguinte
-maneira: \texttt{./easyrsa init-pki} 
+maneira: \texttt{./easyrsa init-pki}. Isso irá iniciar a infraestrutura de chaves públicas no servidor CA.
+Se der tudo certo, deve surgir um diretório chamado \texttt{pki}. Em seguida, chame o script anterior 
+novamente mas dessa vez com a opção \texttt{build-ca}. Isso irá construir a CA e criar
+dois arquivos importantes. Um deles é um certificado público que no contexto de uma VPN para informar
+ao servidor e ao cliente que ambos fazem parte da mesma rede. Isso serve como defesa de ataques 
+do tipo \emph{man-in-the-middle} 
 
 
 
