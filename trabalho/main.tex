@@ -12,10 +12,11 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
+
 \documentclass[12pt]{article}
 
-\usepackage{sbc-template}
-
+\usepackage{sbc-template} 
 \usepackage{graphicx,url}
 
 %\usepackage[brazil]{babel}   
@@ -24,9 +25,9 @@
      
 \sloppy
 
-\title{Esse aqui é o nosso trabalho de fato\\ Papers and Abstracts}
+\title{Esse aqui é o nosso trabalho de fato test\\ Papers and Abstracts}
 
-\author{Luciana P. Nedel\inst{1}, Rafael H. Bordini\inst{2}, Flávio Rech
+\author{Pedro Henrique Bufulin de Almeida \inst{1}, Rafael H. Bordini\inst{2}, Flávio Rech
   Wagner\inst{1}, Jomi F. Hübner\inst{3} }
 
 
@@ -46,14 +47,6 @@
 \begin{document} 
 
 \maketitle
-
-\begin{abstract}
-  This meta-paper describes the style to be used in articles and short papers
-  for SBC conferences. For papers in English, you should add just an abstract
-  while for the papers in Portuguese, we also ask for an abstract in
-  Portuguese (``resumo''). In both cases, abstracts should not have more than
-  10 lines and must be in the first page of the paper.
-\end{abstract}
      
 \begin{resumo} 
   Este meta-artigo descreve o estilo a ser usado na confecção de artigos e
@@ -64,7 +57,6 @@
   não ultrapassem 10 linhas cada, sendo que ambos devem estar na primeira
   página do artigo.
 \end{resumo}
-
 
 \section{General Information}
 
@@ -95,13 +87,33 @@ The abstract and ``resumo'' (if is the case) must be in 12 point Times font,
 indented 0.8cm on both sides. The word \textbf{Abstract} and \textbf{Resumo},
 should be written in boldface and must precede the text.
 
-\section{CD-ROMs and Printed Proceedings}
+\section{Configurado uma VPN utilizando OpenVPN}
 
-In some conferences, the papers are published on CD-ROM while only the
-abstract is published in the printed Proceedings. In this case, authors are
-invited to prepare two final versions of the paper. One, complete, to be
-published on the CD and the other, containing only the first page, with
-abstract and ``resumo'' (for papers in Portuguese).
+Para que seja possível implementar uma VPN como neste exemplo, você precisará
+de uma máquina rodando Ubuntu versão 18.04. Por questões de praticidade, não será
+visto com profundidade todo o processo de instalação das ferramentas que serão usadas, sendo algumas 
+apenas mencionadas cabendo ao leitor descobrir como instalá-las. Além do servidor mencionado,
+o ideal seria ter uma outra máquina para ser a autoridade de certificação (CA), para evitar
+que um agressor capaz de se infiltrar no servidor consiga acessar a chave privada
+e assinar novos certificados. 
+
+\subsection{Instalando os programas necessários}
+
+O primeiro passo é instalar o \emph{OpenVPN} que está disponível nos repositórios padrão do ubuntu.
+Em seguida, instale \emph{EasyRCA} tanto na máquina CA quanto no servidor que servira o VPN.
+O repositório deste programa encontra-se no github no mesmo repositório do \emph{OpenVPN}. 
+A versão a ser utilizada é a 3.0.8.
+
+\subsection{Configurando as variáveis e construindo o CA}
+
+No máquina que contém o CA, entre no diretório onde foi extraído o \emph{EasyRCA}. copie o conteúdo
+do arquivo \texttt{vars.example} para um outro arquivo onde serão armazenadas as variáveis. Atualize
+os valores de acordo com suas informações, feche e salve o arquivo. 
+
+Dentro do da mesma pasta, existe um\emph{script} chamado \texttt{easyrca}. Execute-o da seguinte
+maneira: \texttt{./easyrsa init-pki} 
+
+
 
 \section{Sections and Paragraphs}
 
@@ -152,6 +164,10 @@ space before and after each caption.
 \label{tab:exTable1}
 \includegraphics[width=.7\textwidth]{table.jpg}
 \end{table}
+
+
+
+
 
 \section{Images}
 
