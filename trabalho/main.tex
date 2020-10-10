@@ -159,6 +159,10 @@ Nesse caso, o servidor  VPN transfere pacotes IP em uma conexão SSL, que por su
 
 Por outro lado, o IPsec deve ser gerenciado profundamente no código de rede do sistema operacional, enquanto uma VPN baseada em SSL só precisa de alguma forma de sequestrar o tráfego de entrada e saída. O resto pode estar no software de nível de usuário.
 
+A principal diferença é que o SSL costuma fazer uso do navegador para criptografar dados entre o usuário final e o servidor, sendo comumente utilizado para áreas de sites que exigem a proteção da confidencialidade e integridade dos dados. VPN / IPSEC requer software VPN Client específico e geralmente é para fornecer acesso remoto a sistemas ou redes.
+
+No entanto, as VPNs SSL estão se tornando mais predominantes como meio de fornecer acesso a redes / sistemas por meio do navegador da web. Essa abordagem tem muitos benefícios, pois usa o navegador da web comum para habilitar a conexão segura. A granularidade dessa abordagem também é uma boa maneira de controlar o acesso a aplicativos específicos.
+
 
 \section{Configurado uma VPN utilizando OpenVPN}
 
