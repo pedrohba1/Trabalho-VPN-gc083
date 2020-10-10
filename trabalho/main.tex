@@ -30,7 +30,6 @@
 
 \author{Pedro Henrique Bufulin de Almeida \inst{1}, Gabriel Solis Corrêa\inst{2},\\ Mateus Pereira da Silva\inst{3}, Bruno Falbo Zanotelli\inst{4} }
 
-
 \address{Faculdade de Computação -- Universidade Federal de Uberlândia (UFU)
   \\Caixa Postal 593 -- CEP 38.400-902 -- Uberlândia -- MG -- Brazil
   \email{pedrohba18@gmail.com, gsolis.comp@gmail.com,}
@@ -150,6 +149,17 @@ Com tanta oferta, é importante entender as necessidades da sua rede, antes de c
 Uma outra opção, seria a empresa criar a sua própria rede de servidores VPN, utilizando tecnologias Open Source, tais como, a OpenVPN. Tópico esse, que será abordado mais a frente.
 
 
+\subsubsection{VPN vs SSL}
+
+Uma rápida pesquisa sobre criptografia e segurança de dados é o suficiente para encontrar as duas siglas. E por vezes, é possível confundir o funcionamento de uma com a outra. Porém, ambas tecnologias, apesar de visar segurança (simplificando), não são a mesma e operam de formas diferentes.
+
+VPN e SSL não são do mesmo nível. Uma implementação de VPN requer alguma criptografia em algum ponto. Algumas implementações inclusive, usam SSL, resultando em um sistema em camadas.
+
+Nesse caso, o servidor  VPN transfere pacotes IP em uma conexão SSL, que por sua vez usa TCP como meio de transporte. O IPsec é outra tecnologia que está mais profundamente integrada nos pacotes, o que suprime algumas dessas camadas e, portanto, é um pouco mais eficiente (menos sobrecarga de largura de banda). 
+
+Por outro lado, o IPsec deve ser gerenciado profundamente no código de rede do sistema operacional, enquanto uma VPN baseada em SSL só precisa de alguma forma de sequestrar o tráfego de entrada e saída. O resto pode estar no software de nível de usuário.
+
+
 \section{Configurado uma VPN utilizando OpenVPN}
 
 
@@ -194,6 +204,21 @@ do tipo \emph{man-in-the-middle}
 % subsequent paragraphs should be indented by 1.27 cm.
 
 \section{Considerações Finais}
+
+É desnecessário dizer que, é fundamental cuidar da segurança e proteção das informações da sua empresa, ou de seus dados pessoais e a VPN é uma das ferramentas essenciais nesse cuidado.
+
+Para o primeiro cenário, VPN é um mecanismo muito importante dentro do ambiente empresarial, e fazer o acesso remoto sem utilizá-la é colocar os dados e informações da sua empresa em risco.
+
+Além disso, tal tecnologia, pode trazer uma série de benefícios para a empresa como: Segurança nos dados, corte de gastos, aumento de produtividade, entre outros.
+
+Já no uso doméstico a VPN se torna uma ferramenta tão importante quanto. 
+
+Independente de estar num ambiente totalmente livre e aberto ou em um com alto nível de monitoramento, usar uma VPN garante que suas comunicações se tornem seguras e criptografadas, longe de olhos de curiosos e pessoas má intencionadas.
+
+Também é possível ganhar acesso a conteúdos e informações que estariam bloqueados para seu país ou região. Assim como garantir a liberdade de expressão, pelo anonimato, em locais que essa “prática” não é assegurada. 
+
+Em suma, servidores VPN são uma poderosa ferramenta na busca por privacidade e segurança de informação. O seu funcionamento pode parecer complexo, e sua implementação complicada, no caso de uma rede própria, mas no final para quem busca esses pontos, a VPN se torna sua maior aliada. 
+
 
 
 
