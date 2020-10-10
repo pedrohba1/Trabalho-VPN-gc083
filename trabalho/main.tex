@@ -27,14 +27,13 @@
 
 \title{Vpns e seus usos na computação moderna\\ Documentos e Resumo}
 
-\author{Pedro Henrique Bufulin de Almeida \inst{1}, Gabriel Solis Corrêa\inst{2},\\ TODO - Adicionar Nomes - Flávio Rech
-  Wagner\inst{1}, Jomi F. Hübner\inst{3} }
+\author{Pedro Henrique Bufulin de Almeida \inst{1}, Gabriel Solis Corrêa\inst{2},\\ Mateus Pereira da Silva\inst{1}, Bruno Falbo Zanotelli\inst{3} }
 
 
 \address{Faculdade de Computação -- Universidade Federal de Uberlândia
   (UFU)\\
-  TODO - atualizar esse 2 números - Caixa Postal 15.064 -- 91.501-970 -- Uberlândia -- MG -- Brazil
-  \email{gsolis.comp@gmail.com, TODO - Adicionem o email de vcs}
+  Uberlândia -- MG -- Brazil
+  \email{gsolis.comp@gmail.com, mateus1128@gmail.com, brunofalbo@hotmail.com, TODO - Adicionem o email de vcs}
 }
 
 \begin{document} 
@@ -49,17 +48,48 @@
   limitações de uma VPN.
 \end{resumo}
 
-\section{Introdução}
+\section{O que é uma VPN?}
 
-% All full papers and posters (short papers) submitted to some SBC conference,
-% including any supporting documents, should be written in English or in
-% Portuguese. The format paper should be A4 with single column, 3.5 cm for upper
-% margin, 2.5 cm for bottom margin and 3.0 cm for lateral margins, without
-% headers or footers. The main font must be Times, 12 point nominal size, with 6
-% points of space before each paragraph. Page numbers must be suppressed.
+VPN, Virtual Private Network, ou melhor dizendo em português, Rede Virtual Privada,
+vem se tornando cada vez mais comum no mercado tecnológico, encontramos nas lojas de aplicativos e softwares,
+vários aplicativos de VPN, mas o que exatamente é uma VPN?
+Resumidamente é um túnel seguro criado nada rede de comunicação entre o dispositivo e a Internet,
+o que garante a segurança dos dados trafegados nessa rede de comunicação.
+Em outra palavras, é codificar os dados que são trocados entre o dispositivo e a internet,
+para tornar sua interceptação mais difícil, além de poder fornecer acesso restrito a quem tem as
+credenciais necessárias. Extremamente recomendado para utilizar em locais com rede pública, como areoportos e shopping centers,
+assim seus dados estariam criptografados, e se um invasor estiver analisando o trafego de dados,
+encontrará apenas caracteres sem o menor sentido, porque seus dados de navegação estão todos criptografados,
+evitando assim espionagem ("man-in-the-middle"), roubo de dados, ataque de hackers, entre outros.
 
-% Full papers must respect the page limits defined by the conference.
-% Conferences that publish just abstracts ask for \textbf{one}-page texts.
+\center
+\includegraphics[width=10cm]{images/what-is-vpn-pt_3x.png}
+
+Imagem retirada do site: ExpressVPN
+
+\url{https://ftr.imgix.net/1dTBXblpR440dtchzWmaxR/77aa18c6059aabe82cfbf1221bfb4c5b/what-is-vpn-pt_3x.png?auto=format,compress&cs=srgb&fit=max&w=570&dpr=1&q=55&s=a93a946ec35c70cb89544c4d3581ffdb}
+
+
+Essa imagem retirada do site ExpressVPN, que é um produto de VPN, ilustra muito bem como funciona
+uma VPN, você se conecta diretamente com servidor da VPN e esse servidor irá buscar os dados de navegação que
+você precisa, e devolve para você encriptados. Assim, todo e qualquer agente que tentar captar seus dados de navegação
+no meio do caminho, não irá conseguir.
+
+
+\section{Porque e quando usar uma VPN}
+Existem vários casos, nos quais você pode querer usar uma VPN, um exemplo bem comum, seria utlizar uma VPN, para alterar
+a localização do dispositivo, obtendo outro IP, e podendo acessar sites e/ou recursos bloqueados para certas localidades.
+Um grande exemplo é o Netflix, no qual prove um catalogo de filmes totalmente diferente para cada país devido as leis locais e 
+permissões de exibição.
+Ou, você está atrás de mais segurança e anonimidade na internet, então você pode muito bem usar uma VPN, para esconder a sua identidade dos sites que acessa,
+protegendo seu IP, e impossibilitando te rastrearem e esconder sua atividade até do seu próprio provedor de internet. No Brasil
+sabemos que todos os sites acessados e dados trafegados, ficam salvo no seu provedor de internet por pelo menos 6 meses, por questões juridicas,
+com uma VPN, sua provedora guardaria apenas dados criptografados.
+Como citado no primeiro paragrafo, em uma rede pública, é indispensável o uso de uma VPN, para te proteger de qualquer um que esteja ali,
+já que o acesso é livre e qualquer um tem acesso na mesma rede que você.
+O caso mais comun da VPN, é para empresas que possuem funcionários remotos, trabalhando a distância,
+e precisa manter todos na mesma rede local, como se fosse um escritório presencial, além de garantir a segurança dos dados.
+
 
 \section{Configurado uma VPN utilizando OpenVPN}
 
