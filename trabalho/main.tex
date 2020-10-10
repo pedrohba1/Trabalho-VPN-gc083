@@ -21,6 +21,7 @@
 
 %\usepackage[brazil]{babel}   
 \usepackage[utf8]{inputenc}  
+\usepackage[document]{ragged2e}
 
      
 \sloppy
@@ -36,7 +37,7 @@
   \email{gsolis.comp@gmail.com, mateus1128@gmail.com, brunofalbo@hotmail.com, TODO - Adicionem o email de vcs}
 }
 
-\begin{document} 
+\begin{document}
 
 \maketitle
      
@@ -47,6 +48,7 @@
   hospedados nos servidores da Digital Ocean, para observar o funcionamento e as
   limitações de uma VPN.
 \end{resumo}
+
 
 \section{O que é uma VPN?}
 
@@ -65,14 +67,18 @@ evitando assim espionagem ("man-in-the-middle"), roubo de dados, ataque de hacke
 \center
 \includegraphics[width=10cm]{images/what-is-vpn-pt_3x.png}
 
-\section{Configurado uma VPN utilizando OpenVPN}
+\begin{flushleft}
+
+\section{Definições e conceitos}
 
 \subsection{Quais os protocolos são utilizados em VPN?}
-Protocolos são essenciais na escolha do servidor VPN, já que é um elemento suma importância para esse serviço.
+
+Protocolos são essenciais na escolha do servidor VPN, já que é um elemento suma importância para esse serviço. 
 
 Os protocolos são a combinação de padrões de criptografia e de transmissão, que concedem rápido acesso e segurança aos servidores VPN.
 
 Existem vários tipos, dentre eles:
+
 
 \subsubsection{PPTP}
 Como uma extensão do Point-to-Point Protocol (PPP), o PPTP (Point-to-Point Tunneling Protocol) é um protocolo de servidor VPN muito utilizado e suportado pelos dispositivos. Ele possui uma criptografia mais básica, o que pode deixar a desejar na questão de segurança dos dados. 
@@ -144,7 +150,10 @@ Com tanta oferta, é importante entender as necessidades da sua rede, antes de c
 Uma outra opção, seria a empresa criar a sua própria rede de servidores VPN, utilizando tecnologias Open Source, tais como, a OpenVPN. Tópico esse, que será abordado mais a frente.
 
 
-\subsection{Configurado uma VPN utilizando OpenVPN}
+\section{Configurado uma VPN utilizando OpenVPN}
+
+
+\subsection{Requisitos}
 
 Para que seja possível implementar uma VPN como neste exemplo, você precisará
 de uma máquina rodando Ubuntu versão 18.04. Por questões de praticidade, não será
@@ -185,6 +194,7 @@ do tipo \emph{man-in-the-middle}
 % subsequent paragraphs should be indented by 1.27 cm.
 
 \section{Considerações Finais}
+
 
 
 % Figure and table captions should be centered if less than one line
@@ -236,4 +246,5 @@ indented, while the subsequent should be indented by 0.5 cm.
 \bibliographystyle{sbc}
 \bibliography{sbc-template}
 
+\end{flushleft}
 \end{document}
