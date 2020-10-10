@@ -63,6 +63,83 @@
 
 \section{Desenvolvimento}
 
+\subsection{Quais os protocolos são utilizados em VPN?}
+Protocolos são essenciais na escolha do servidor VPN, já que é um elemento suma importância para esse serviço.
+
+Os protocolos são a combinação de padrões de criptografia e de transmissão, que concedem rápido acesso e segurança aos servidores VPN.
+
+Existem vários tipos, dentre eles:
+
+\subsubsection{PPTP}
+Como uma extensão do Point-to-Point Protocol (PPP), o PPTP (Point-to-Point Tunneling Protocol) é um protocolo de servidor VPN muito utilizado e suportado pelos dispositivos. Ele possui uma criptografia mais básica, o que pode deixar a desejar na questão de segurança dos dados. 
+
+Contudo, essa característica também faz com que ele seja mais rápido do que outros modelos de protocolo VPN, além de possuir configuração mais simples. A maior parte das falhas de segurança também já foram resolvidas nas versões mais atuais do PPTP. Isso faz com que essa maior agilidade compense em detrimento de uma menor segurança para algumas empresas.
+
+Uma forma de melhorar a segurança é utilizar da tecnologia PPP ou Protocolo Ponto-a-Ponto para implementar medidas de criptografia.
+
+Esta é uma VPN útil tanto para os usuários empresariais, como, para usuários domésticos. São ideais para uso pessoal e empresarial, porque elas não exigem a compra e a instalação de hardware e recursos extras, normalmente oferecidos como software add-on barato. Além de serem compatíveis com os sistemas Linux, Windows e Mac.
+
+\subsubsection{L2TP}
+O L2TP (Layer 2 Tunneling Protocol) consegue garantir confidencialidade, autenticação e integridade de dados, o que assegura maior proteção. No entanto, nada disso é oferecido pelo protocolo por si só. Pois ele se baseia em um protocolo de criptografia IPSec para proporcionar a privacidade necessária aos usuários da rede.
+
+As ligações do L2TP são conhecidas como linhas virtuais e oferecem mais facilidades para aqueles que utilizam o servidor de forma remota. Isso porque ele possibilita que o servidor da rede VPN de uma organização consiga gerir os endereços IP atribuídos aos seus usuários. Assim, garantindo proteção e privacidade.
+
+\subsubsection{IPSec}
+IPSec (Internet Protocol Security) oferece transferência estável de dados pela rede pública ou privada. Uma extensão do protocolo IP (Internet Protocol), ele visa garantir mais segurança na comunicação, utilizando-se de serviços de segurança criptográficos. 
+
+Sua forma de funcionamento se dá da seguinte maneira: é necessário pegar um pacote IP privado, criptografar, autenticar e dar integridade e depois encapsular os pacotes protegidos para novos IPs a serem repassados.
+
+Com esta maneira operacional, o IPSec se torna um bom protocolo em segurança para as empresas, filiais e usuários remotos. Dentre as suas principais vantagens e benefícios, podemos destacar também o oferecimento de um alto nível de confidencialidade, privacidade e autenticação dos dados e informações que trafegam dentro da rede.
+
+
+\subsection{Pontos fortes e fracos de uma VPN}
+
+O uso de um servidor VPN é principalmente recomendado para empresas. Pois consegue manter informações seguras nas comunicações remotas ou em armazenamento em nuvem.
+
+Servidores com tal configuração, trazem algumas vantagens para os usuários, como:
+
+\subsubsection{Segurança}
+
+Principal ponto positivo do servidor VPN.  Por usar criptografia dos dados e diversos outros recursos de segurança, ele permite que a navegação seja mais confiável e segura, independente de onde seja usada e em qual rede acessada.
+
+\subsubsection{Privacidade}
+As informações que estão na rede só são acessadas por quem tem permissão. Assim, cada indivíduo tem acesso apenas ao que é de seu interesse para o trabalho e nada mais. Dessa forma, todas as informações e dados que circulam dentro da rede da empresa acabam sendo mais confiáveis e úteis. 
+
+A privacidade dos usuários que utilizam a rede com servidor VPN estará garantida, sem riscos de que informações confidenciais sejam vazadas.
+
+\subsubsection{Acesso remoto}
+Desde que, aqueles com permissão tenham acesso a internet, será garantido acessar os servidores remotos, não importando o lugar do mundo ou o dispositivo. 
+
+Tal característica permite que, funcionários trabalhem remotamente sem que precisem carregar notebooks da empresa ou anotem informações importantes quando tiverem a distância. Tornando o trabalho mais simples e tendo um ganho considerável em produtividade.
+
+A empresa também se beneficia pois, deixa de ser necessário investir em equipamentos e tecnologias que garantiriam o acesso e segurança aos sistemas. Assim como funcionários podem passar a usar seus próprios dispositivos.
+
+\subsubsection{Custo}
+Servidores VPN são consideravelmente mais baratos do que outras tecnologias e configurações de segurança.
+
+Como utilizam a rede pública de internet como conexão, diminui-se os custos de implantação e softwares próprios.
+
+
+Porém, todo e qualquer sistema ou tecnologia apresentam desvantagens, no caso de servidores VPN, essas são as principais:
+
+\subsubsection{Velocidade}
+Principal ponto negativo de servidores VPN. Para utilizar esse tipo de servidor é preciso estabelecer duas conexões.
+
+Logo, uma boa velocidade de rede é exigida, e mesmo assim, é quase sempre bem perceptível a queda na banda de internet utilizada.
+
+\subsubsection{Dependência da Internet}
+O acesso remoto é algo extremamente útil para se trabalhar fora da empresa porém, um acesso constante a internet é necessário.
+
+Se a rede tem uma conexão instável, cai frequentemente ou se não possui acesso a internet, não será possível acessar o servidor VPN e os dados nele armazenados.
+
+\subsubsection{Confiança no Servidor}
+Existem muitos serviços de VPN sendo oferecidos, alguns gratuitos, a preços baixos ou outros que necessitam de um investimento maior.
+
+Com tanta oferta, é importante entender as necessidades da sua rede, antes de contratar algum serviço.  As VPNs constantemente mudam. Por isso, é importante ter um suporte em que a empresa consiga facilmente entrar em contato para resolver os impasses da rede.
+
+Uma outra opção, seria a empresa criar a sua própria rede de servidores VPN, utilizando tecnologias Open Source, tais como, a OpenVPN. Tópico esse, que será abordado mais a frente.
+
+
 \subsection{Configurado uma VPN utilizando OpenVPN}
 
 Para que seja possível implementar uma VPN como neste exemplo, você precisará
