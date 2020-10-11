@@ -240,6 +240,19 @@ e certificados que serão usadas pelos clientes para acessar o servidor VPN.
 Nesta subseção, veremos como gerar chaves e certificados, à partir do servidor VPN, que serão usados
 pelos clientes que se conectarão ao VPN. Este processo precisa ser repetido para cada cliente que será criado.
 
+Primeiramente, crie uma pasta para armazenar os arquivos de chaves e certificados dos clientes com o 
+comando \texttt{mkdir -p ~/client-configs/keys}. Em seguida, altere as permissões desta pasta para que apenas o proprietário
+possa alterá-lo, como medida de segurança. 
+
+Agora, vamos gerar a requisição de certificado do cliente, de maneira semelhante à como foi gerada a requisição de certificado
+do servidor. Execute o seguinte script do \emph{easyrsa}: \texttt{./easyrsa gen-req client1}. Este comando irá gerar 
+uma chave do cliente e uma requisição de certificado na pasta \texttt{/pki}. Mova a chave para \texttt{~/client-configs/keys/}
+e envie a requisição de certificado, utilizando um método seguro, para o servidor CA. 
+
+No servidor CA novamente, o certificado do cliente pode ser assinado com o comando \texttt{./easyrsa sign-req client client1}
+
+
+
 
 \section{Discussão}
 
