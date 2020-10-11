@@ -164,25 +164,25 @@ A principal diferença é que o SSL costuma fazer uso do navegador para criptogr
 No entanto, as VPNs SSL estão se tornando mais predominantes como meio de fornecer acesso a redes / sistemas por meio do navegador da web. Essa abordagem tem muitos benefícios, pois usa o navegador da web comum para habilitar a conexão segura. A granularidade dessa abordagem também é uma boa maneira de controlar o acesso a aplicativos específicos.
 
 
-\section{Configurado uma VPN utilizando OpenVPN}
+\section{Configurado uma VPN utilizando OpenVPN \cite{feilner2006openvpn}} 
 
 
 \subsection{Requisitos}
 
 Para que seja possível implementar uma VPN como neste exemplo, você precisará
-de uma máquina rodando Ubuntu versão 18.04. Por questões de praticidade, não será
+de uma máquina rodando Ubuntu versão 20.04.1 LTS. Por questões de praticidade, não será
 visto com profundidade todo o processo de instalação das ferramentas que serão usadas, sendo algumas 
 apenas mencionadas cabendo ao leitor descobrir como instalá-las. Além do servidor mencionado,
 o ideal seria ter uma outra máquina para ser a autoridade de certificação (CA), para evitar
 que um agressor capaz de se infiltrar no servidor consiga acessar a chave privada
-e assinar novos certificados. 
+e assinar novos certificados com ela. 
 
 \subsection{Instalando os programas necessários}
 
 O primeiro passo é instalar o \emph{OpenVPN} que está disponível nos repositórios padrão do ubuntu.
 Em seguida, instale \emph{EasyRCA} tanto na máquina CA quanto no servidor que servira o VPN.
 O repositório deste programa encontra-se no github no mesmo repositório do \emph{OpenVPN}. 
-A versão a ser utilizada é a 3.0.8.
+A versão a ser utilizada é a 3.0.8. 
 
 \subsection{Configurando as variáveis e construindo o CA}
 
@@ -194,10 +194,52 @@ Dentro do da mesma pasta, existe um\emph{script} chamado \texttt{easyrca}. Execu
 maneira: \texttt{./easyrsa init-pki}. Isso irá iniciar a infraestrutura de chaves públicas no servidor CA.
 Se der tudo certo, deve surgir um diretório chamado \texttt{pki}. Em seguida, chame o script anterior 
 novamente mas dessa vez com a opção \texttt{build-ca}. Isso irá construir a CA e criar
-dois arquivos importantes. Um deles é um certificado público que no contexto de uma VPN para informar
+dois arquivos. Um deles é um certificado público que no contexto de uma VPN para informar
 ao servidor e ao cliente que ambos fazem parte da mesma rede. Isso serve como defesa de ataques 
-do tipo \emph{man-in-the-middle} 
--
+do tipo \emph{man-in-the-middle}. O outro é a chave privada que a CA usa para assinar os certificados
+para os clientes. Quem tiver acesso à esta chave será capaz de assinar requisições de certificado
+e terá acesso ao \emph{VPN}. Por isso, em um cenário real, faz sentido que a máquina CA seja mantida \emph{offline}
+enquanto não estiver sendo utilizada.
+
+Em seguida, é preciso executar o script \texttt{./easyrsa build-ca } para concluir a criação da CA. Assim, já 
+é possível usar este servidor para assinar requisições de certificados. 
+
+\subsection{Criando chaves e certificados do servidor VPN}
+
+Agora com a CA funcionando, temos que gerar uma chave privada e um pedido de certificado, à partir do servidor
+que funcionará como VPN, e enviar este pedido para a CA assinar. 
+
+No servidor da VPN, execute o script \texttt{init-pki} disponível no \emph{easyrsa} que também deve ser Instalando
+nesta máquina. Em seguida, execute o script \texttt{./easyrsa gen-req}. Este script criará a requisição de certificado
+para este servidor, e ele pedirá um nome para dar ao servidor. Por padrão, o \emph{openvpn} já vem com seus arquivos
+de configurações prontos para \emph{server} que é o nome padrão. Se for necessário mudar para algum outro nome, é preciso
+modificar os arquivos de configuração do \emph{openvpn} assim como o nome dos certificados e das chaves em \texttt{/etc/openvpn/server.conf}.
+Enfim, tendo a requisição de certificado gerada e a chave do servidor gerados em \texttt{easyrsa/pki}, transfira a requisição
+de certificado para a máquina CA de maneira segura e de preferência em uma pasta temporária (recomenda-se o uso do comando \texttt{scp}), onde ela deve ser assinada, e 
+transfira o arquivo da chave para \texttt{/etc/openvpn}.
+
+Com a requisição de certificado no servidor CA, importe o certificado da pasta temporária com o script 
+\texttt{./easyrsa import-req /tmp/server.req server}. Neste script, o primeiro parâmetro é o arquivo da requisição,
+que no caso está na pasta temporária, e o segundo parâmetro é o nome que foi dado ao servidor VPN. Em seguida,
+assine a requisição com \texttt{./easyrsa sign-req server server}. Neste caso, o primeiro parâmetro é o tipo de 
+requisição, que pode ser tanto \texttt{server} quanto \texttt{client}. O segundo é o nome padrão do servidor definido anteriormente.
+
+Em seguida, transfira o certificado assinado de volta para a VPN e o arquivo chamado
+\texttt{ca.crt}, que é o certificado da CA, usando um método seguro. De volta na máquina VPN, copie os dois arquivos recebidos 
+anteriormente para \texttt{/etc/openvpn}. Ainda no servidor VPN, o \emph{easyrsa} deve ser usado mais uma vez para
+gerar uma chave Diffie-Hellman, da seguinte maneira: \texttt{./easyrsa gen-dh}. Também é preciso gerar uma
+assinatura HMAC para garantir a capacidade de verificação do TLS, assim: \texttt{openvpn --genkey --secret ta.key}.
+Finalizados esses dois comandos, copie os dois arquivos para \texttt{/etc/openvpn}. 
+
+Com isso, todos os certificados e chaves de servidores estão gerados. À seguir, veremos como gerar as chaves 
+e certificados que serão usadas pelos clientes para acessar o servidor VPN.
+
+
+\subsection{Gerando certificados e chaves do cliente}
+
+Nesta subseção, veremos como gerar chaves e certificados, à partir do servidor VPN, que serão usados
+pelos clientes que se conectarão ao VPN. Este processo precisa ser repetido para cada cliente que será criado.
+
 
 \section{Discussão}
 
